@@ -9,6 +9,10 @@ class Splashview extends StatefulWidget {
 class _SplashviewState extends State<Splashview> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Column(children: [
+
+      ],),
+    );
   }
 }
