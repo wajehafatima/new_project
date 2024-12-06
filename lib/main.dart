@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:newproject/firebase_options.dart';
+import 'package:newproject/src/view/auth_view/loginView/loginView.dart';
 import 'package:newproject/src/view/auth_view/signupView/signupView.dart';
 import 'package:newproject/src/view/startingView/splashView/splashView.dart';
 // connect project with firebase......
@@ -49,7 +50,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Signupview()
+      home: Loginview()
+      //Signupview()
     );
 
   }

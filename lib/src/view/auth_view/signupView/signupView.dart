@@ -29,12 +29,9 @@ SizedBox(height: 20,),
     CustomTextField(hintText: 'password',isPassword: true,),
     CustomTextbutton(),
     SizedBox(height: 30,),
-    Center(
-      child: CustomButton(text: 'Sign Up', backgroundColor:Color(0xff646FD4), textColor:Colors.white, onPressed:(){
+    CustomButton(text: 'Sign Up', backgroundColor:AppColors.darkBlue, textColor:Colors.white, onPressed:(){
 
-      }),
-
-    ),
+    }),
     SizedBox(height: 10,),
     Row(mainAxisAlignment: MainAxisAlignment.center,
       children: [
