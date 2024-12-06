@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newproject/src/controller/assets/colors/appColors.dart';
 import 'package:newproject/src/controller/assets/images/appImages.dart';
 import 'package:newproject/src/controller/constants/widgets/buttons/inkwellbuttons.dart';
+import 'package:newproject/src/view/auth_view/signupView/signupView.dart';
     class Onboardingview extends StatefulWidget {
       const Onboardingview({super.key});
 
@@ -22,7 +23,9 @@ import 'package:newproject/src/controller/constants/widgets/buttons/inkwellbutto
             Text('mtodo',style: GoogleFonts.jost(fontWeight: FontWeight.w500, fontSize:24,color: Color(0xff9BA3EB)),),
 
             SizedBox(height: 30,),
-            CustomButton(text: 'Sign Up', backgroundColor:AppColors.lightBlue, textColor: Colors.white, onPressed:(){}),
+            CustomButton(text: 'Sign Up', backgroundColor:AppColors.lightBlue, textColor: Colors.white, onPressed:(){
+            Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> Signupview()));
+            }),
 SizedBox(height: 5,),
 Row(mainAxisAlignment: MainAxisAlignment.center,
   children: [
