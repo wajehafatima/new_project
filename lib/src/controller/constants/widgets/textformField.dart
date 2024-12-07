@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -33,14 +34,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xffD9D9D9)),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xffD9D9D9)),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
           hintText: widget.hintText,
-          hintStyle: GoogleFonts.roboto(color: Color(0xffD9D9D9), fontSize: 14, fontWeight: FontWeight.w400),
+          hintStyle: GoogleFonts.roboto(color: Color(0xffD9D9D9), fontSize: 14.sp, fontWeight: FontWeight.w400),
           suffixIcon: widget.isPassword
               ? IconButton(
             icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),

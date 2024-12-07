@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../assets/colors/appColors.dart';
@@ -15,34 +16,34 @@ class _FbGoogleState extends State<FbGoogle> {
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(height: 48,
-          width: 154,
+        Container(height: 48.h,
+          width: 154.w,
           decoration: BoxDecoration(
               border: Border.all(color: Color(0xff888888)),
-              borderRadius: BorderRadius.circular(12)
+              borderRadius: BorderRadius.circular(12.r)
 
           ),
           child: Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(Appimages.google,width: 24,height: 24,),
+              Image.asset(Appimages.google,width: 24.w,height: 24.h,),
               SizedBox(width: 10,),
-              Text('Google',style: GoogleFonts.roboto(color: Color(0xff888888),fontWeight: FontWeight.w400,fontSize: 14),),
+              Text('Google',style: GoogleFonts.roboto(color: Color(0xff888888),fontWeight: FontWeight.w400,fontSize: 14.sp),),
 
             ],
           ),),
-        SizedBox(width: 20,),
-        Container(height: 48,
+        SizedBox(width: 20.w,),
+        Container(height: 48.h,
           width: 154,
           decoration: BoxDecoration(color:AppColors.darkBlue,
 
-              borderRadius: BorderRadius.circular(12)
+              borderRadius: BorderRadius.circular(12.r)
 
           ),
           child: Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(Appimages.fbLogo,width: 24,height: 24,),
-              SizedBox(width: 10,),
-              Text('Facebook',style: GoogleFonts.roboto(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14),),
+              Image.asset(Appimages.fbLogo,width: 24.w,height: 24.h,),
+              SizedBox(width: 10.w,),
+              Text('Facebook',style: GoogleFonts.roboto(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14.sp),),
 
             ],
           ),),

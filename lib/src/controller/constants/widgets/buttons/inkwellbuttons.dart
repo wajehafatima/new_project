@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newproject/src/controller/assets/colors/appColors.dart';
 class CustomButton extends StatelessWidget {
@@ -21,17 +22,17 @@ class CustomButton extends StatelessWidget {
       child: GestureDetector(
         onTap: onPressed,
         child: Container(
-          height: 40,
-          width: 240,
+          height: 40.h,
+          width: 240.w,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
             color: backgroundColor,
           ),
           child: Center(
             child: Text(
               text,
               style: GoogleFonts.roboto(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
                 color: textColor,
               ),
