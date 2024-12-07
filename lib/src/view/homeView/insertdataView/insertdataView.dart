@@ -37,51 +37,163 @@ class _InsertdataviewState extends State<Insertdataview> {
                 contentPadding: EdgeInsets.zero,
                 backgroundColor: Colors.transparent,
                 elevation: 0,
-                content: Container(
-                    width: 260.w,
-                    height: 232.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Column(
-                      children: [
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                content: Column(
+                  children: [
+                    Container(
+                        width: 260.w,
+                        height: 232.h,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Column(
                           children: [
-                            Column(crossAxisAlignment: CrossAxisAlignment.center,
+                            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text('Design Todo List',style: GoogleFonts.signika(fontSize:16.sp,fontWeight:FontWeight.w500
-                                    ,color:Colors.black),),
+                                Column(crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text('Design Todo List',style: GoogleFonts.signika(fontSize:16.sp,fontWeight:FontWeight.w500
+                                        ,color:Colors.black),),
 
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10,top: 5),
-                                  child: Text('I shoud Design  todo list today,Tick the \ndone options.',style: GoogleFonts.signika(fontSize:12.sp,fontWeight:FontWeight.w300
-                                      ,color:Colors.black),
-                                    ),
-                                )
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10,top: 5),
+                                      child: Text('I shoud Design  todo list today,Tick the \ndone options.',style: GoogleFonts.signika(fontSize:12.sp,fontWeight:FontWeight.w300
+                                          ,color:Colors.black),
+                                        ),
+                                    )
+                                  ],
+                                ),
+                                Icon(Icons.star,color:Colors.orangeAccent,size: 35,)
                               ],
                             ),
-                            Icon(Icons.star,color:Colors.orangeAccent,size: 35,)
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text('From'),
-                            Container(
-                              height: 32.h,
-                              width: 97.w,
-                              decoration: BoxDecoration(
-                                borderRadius: 
+                            SizedBox(height: 10.h,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Row(
+                                children: [
+                                  Text('from',style:GoogleFonts.signika(fontSize: 16,color: Color(0xff888888)),),
+                                  SizedBox(width: 5.w,),
+                                  Container(
+                                    height: 32.h,
+                                    width: 97.w,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(color:Color(0xff888888),  ),
+                                    ),
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+
+                                            Text('08',style: GoogleFonts.signika(fontSize: 12.sp,
+                                                color: Color(0xff888888)),),
+
+                                            Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                          ],
+                                        ),
+                                        SizedBox(width: 5.w,),
+                                        Text(':',style: GoogleFonts.signika(fontSize: 14,fontWeight: FontWeight.w400,
+                                            color: Color(0xff888888)),),
+                                        SizedBox(width: 5.w,),
+                                        Column(
+                                          children: [
+                                            Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+
+                                            Text('08',style: GoogleFonts.signika(fontSize: 12.sp,
+                                                color: Color(0xff888888)),),
+
+                                            Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 15.h,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 25),
+                              child: Row(
+                                children: [
+                                  Text('till',style:GoogleFonts.signika(fontSize: 16,color: Color(0xff888888)),),
+                                  SizedBox(width: 9.w,),
+                                  Container(
+                                    height: 32.h,
+                                    width: 97.w,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(color:Color(0xff888888),  ),
+                                    ),
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+
+                                            Text('12',style: GoogleFonts.signika(fontSize: 12.sp,
+                                                color: Color(0xff888888)),),
+
+                                            Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                          ],
+                                        ),
+                                        SizedBox(width: 5.w,),
+                                        Text(':',style: GoogleFonts.signika(fontSize: 14,fontWeight: FontWeight.w400,
+                                            color: Color(0xff888888)),),
+                                        SizedBox(width: 5.w,),
+                                        Column(
+                                          children: [
+                                            Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+
+                                            Text('10',style: GoogleFonts.signika(fontSize: 12.sp,
+                                                color: Color(0xff888888)),),
+
+                                            Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             )
                           ],
                         )
-                      ],
-                    )
 
 
-                ),
-              );
+                    ),
+
+
+
+              Expanded(child: Container()), // spacer
+              Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+              ElevatedButton(
+              style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.white, backgroundColor: Colors.red,
+              ),
+              onPressed: () {
+              Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+              ),
+              ElevatedButton(
+              style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.white, backgroundColor: Colors.blue,
+              ),
+              onPressed: () {
+              // apna OK button ka logic yahaan daalein
+              Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+              ),
+              ],
+              ),
+              SizedBox(height: 10.h,)
+
+              ])   );
             },
           );
         },
