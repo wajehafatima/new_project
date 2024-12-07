@@ -5,6 +5,7 @@ import 'package:newproject/firebase_options.dart';
 import 'package:newproject/src/view/auth_view/loginView/loginView.dart';
 import 'package:newproject/src/view/auth_view/signupView/signupView.dart';
 import 'package:newproject/src/view/homeView/homeView.dart';
+import 'package:newproject/src/view/homeView/insertdataView/insertdataView.dart';
 import 'package:newproject/src/view/startingView/splashView/splashView.dart';
 // connect project with firebase......
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(360,640),
-      child: MaterialApp(
+      child: MaterialApp(debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             // This is the theme of your application.
@@ -54,8 +55,8 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home:
-          Homeview()
+          home:Insertdataview()
+          //Homeview()
         // Splashview()
         //  Loginview()
         // Signupview()
