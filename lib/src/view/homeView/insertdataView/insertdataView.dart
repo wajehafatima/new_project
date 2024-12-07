@@ -281,7 +281,54 @@ SizedBox(height: 10.h,),
                                   ),
                                   child: Column(
                                     children: [
-                                      // Dialogue box ka content yahaan daalein
+                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [SizedBox(height: 10.h,),
+                                          Text('Design Todo List',style: GoogleFonts.signika(fontSize:16.sp,fontWeight:FontWeight.w500
+                                              ,color:Colors.black),),
+
+                                          Padding(
+                                            padding: const EdgeInsets.only(left: 5,top: 5),
+                                            child: Text('I shoud Design  todo list today, Tick the \ndone options.',style: GoogleFonts.signika(fontSize:12.sp,fontWeight:FontWeight.w300
+                                                ,color:Colors.black),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 10),
+                                        child: Row(
+                                          children: [
+                                            CircleAvatar(radius: 16.r, child: Icon(Icons.done)),
+                                            SizedBox(width: 10),
+                                            Text(
+                                              'Fonts',
+                                              style: GoogleFonts.signika(
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color(0xff888888),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(height: 10),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left:10),
+                                        child: Row(
+                                          children: [
+                                            CircleAvatar(radius: 16.r),
+                                            SizedBox(width: 10),
+                                            Text(
+                                              'Color',
+                                              style: GoogleFonts.signika(
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color(0xff888888),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
