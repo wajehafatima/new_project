@@ -14,7 +14,7 @@ class Insertdataview extends StatefulWidget {
 class _InsertdataviewState extends State<Insertdataview> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.white,
+    return Scaffold(backgroundColor: Colors.white
       appBar: AppBar(
         leading: Icon(Icons.arrow_back, color: AppColors.darkBlue),
         backgroundColor: Colors.transparent,
