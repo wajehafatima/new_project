@@ -23,7 +23,7 @@ class _InsertdataviewState extends State<Insertdataview> {
           style: GoogleFonts.jost(
             color: AppColors.darkBlue,
             fontSize: 22.sp,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w500
           ),
         ),
         centerTitle: true,
