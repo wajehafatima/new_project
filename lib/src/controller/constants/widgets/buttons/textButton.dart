@@ -25,7 +25,7 @@ class CustomTextbutton extends StatelessWidget {
                 },
               ),
               TextSpan(
-                text: ' of use and ',
+                text: ' of use \nand ',
                 style: GoogleFonts.jost(fontSize: 12.sp, fontWeight: FontWeight.w500, color: Color(0xff7D7D7D)),
               ),
               TextSpan(

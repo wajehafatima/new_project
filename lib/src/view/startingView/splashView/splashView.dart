@@ -28,7 +28,7 @@ class _SplashviewState extends State<Splashview> {
     });
   }
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 110),
@@ -42,7 +42,9 @@ class _SplashviewState extends State<Splashview> {
           ),
             SizedBox(height: 40.h,),
 
-          CustomButton(text:'Get Started', backgroundColor:AppColors.lightBlue, textColor:Colors.white, onPressed: (){})
+          CustomButton(text:'Get Started', backgroundColor:AppColors.lightBlue, textColor:Colors.white, onPressed: (){
+            Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> Onboardingview()));
+          })
 
 
           ],),

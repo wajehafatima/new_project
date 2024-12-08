@@ -5,6 +5,7 @@ import 'package:newproject/src/controller/assets/colors/appColors.dart';
 
 import 'package:newproject/src/controller/constants/widgets/customAppBar.dart';
 import 'package:newproject/src/controller/constants/widgets/taskbox.dart';
+import 'package:newproject/src/view/homeView/insertdataView/insertdataView.dart';
 import '../../controller/assets/images/appImages.dart';
 
 class Homeview extends StatefulWidget {
@@ -17,7 +18,7 @@ class Homeview extends StatefulWidget {
 class _HomeviewState extends State<Homeview> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
@@ -41,75 +42,77 @@ class _HomeviewState extends State<Homeview> {
 
 
        drawer:  Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage(Appimages.profie),
-                    ),
-                    SizedBox(width: 10.h),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hey Wajeha',
-                          style: TextStyle(
-                              color: AppColors.darkBlue,
-                              fontSize: 14.h,
-                              fontWeight: FontWeight.w400
+          child: Container(color: Colors.white,
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage(Appimages.profie),
+                      ),
+                      SizedBox(width: 10.h),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Hey Wajeha',
+                            style: TextStyle(
+                                color: AppColors.darkBlue,
+                                fontSize: 14.h,
+                                fontWeight: FontWeight.w400
+                            ),
                           ),
-                        ),
-                        Text(
-                          'wajehafatima92@gmail.com',
-                          style: TextStyle(
-                              color: Color(0xff888888),
-                              fontSize: 10.h,
-                              fontWeight: FontWeight.w400
+                          Text(
+                            'wajehafatima92@gmail.com',
+                            style: TextStyle(
+                                color: Color(0xff888888),
+                                fontSize: 10.h,
+                                fontWeight: FontWeight.w400
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.edit_outlined,color: Color(0xff8888888),),
-                title: Text(
-                  'Edit profile',
-                  style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400)
-                  ,
+                ListTile(
+                  leading: Icon(Icons.edit_outlined,color: Color(0xff8888888),),
+                  title: Text(
+                    'Edit profile',
+                    style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400)
+                    ,
+                  ),
                 ),
-              ),
-              ListTile(leading: Icon(Icons.edit_calendar_outlined),
-                title: Text(
-                  'Daily Tasks',
-                  style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400),
+                ListTile(leading: Icon(Icons.edit_calendar_outlined),
+                  title: Text(
+                    'Daily Tasks',
+                    style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400),
+                  ),
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.star,color: Color(0xff8888888),),
-                title: Text(
-                  'Important Tasks',
-                  style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400)
-                  ,
+                ListTile(
+                  leading: Icon(Icons.star,color: Color(0xff8888888),),
+                  title: Text(
+                    'Important Tasks',
+                    style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400)
+                    ,
+                  ),
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.done_all,color: Color(0xff8888888),),
-                title: Text(
-                  'Done Tasks',
-                  style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400)
-                  ,
+                ListTile(
+                  leading: Icon(Icons.done_all,color: Color(0xff8888888),),
+                  title: Text(
+                    'Done Tasks',
+                    style: GoogleFonts.jost(color: Color(0xFF888888),fontSize: 12.sp,fontWeight: FontWeight.w400)
+                    ,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
 
@@ -182,9 +185,13 @@ Center(
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(color: AppColors.darkBlue)
                   ),
-                  child: Center(child: Text('Today',style: GoogleFonts.jost(fontSize: 16,fontWeight: FontWeight.w500,
-                    color: Color(0xff888888),
-                  ),),),
+                  child: Center(child: TextButton(onPressed: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=> Insertdataview()));
+                  },
+                    child: Text('Today',style: GoogleFonts.jost(fontSize: 16,fontWeight: FontWeight.w500,
+                      color: Color(0xff888888),
+                    ),),
+                  ),),
                 ),
                 Container(
                   height: 27.h,
