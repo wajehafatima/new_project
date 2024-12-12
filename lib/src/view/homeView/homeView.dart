@@ -128,12 +128,46 @@ class _HomeviewState extends State<Homeview> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Richtexthome(),
+
                       SizedBox(height: 10.h),
                       Text(
                         'Saturday, August 15, 2024',
                         style: GoogleFonts.jost(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+                            height: 48,
+                            width: 280,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [BoxShadow(
+                                  blurRadius: 4.r,
+                                  color: AppColors.Grey
+                              ),
+                              ],
+                            ),
+                            child: Row(children: [
+                              Icon(Icons.search),
+                              SizedBox(width: 20.w,),
+                              Text('Search Here'),
+                            ],)
+                          // child: Padding(
+                          //   padding: const EdgeInsets.only(left: 10),
+                          //   child: TextFormField(
+                          //     decoration: InputDecoration(
+                          //       icon: Icon(Icons.search, color: AppColors.Grey,),
+                          //       hintText: 'Search Task',
+                          //       hintStyle: GoogleFonts.jost(
+                          //           fontWeight: FontWeight.w300, fontSize: 16),
+                          //       border: InputBorder.none,
+                          //     ),
+                          //
+                          //   ),
+                          // ),
                         ),
                       ),
                     ],
@@ -157,6 +191,8 @@ class _HomeviewState extends State<Homeview> {
                       Timebuttons(text: 'Monthly', onPressed: (){})
                     ],
                   ),
+              SizedBox(height: 20.h,),
+
 
                   SizedBox(height: 30.h,),
                   Wrap(
