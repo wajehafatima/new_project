@@ -38,8 +38,9 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
 
           home://Insertdataview()
-          //Homeview()
-        Splashview()
+
+Homeview()
+       // Splashview()
         //  Loginview()
         // Signupview()
       ),

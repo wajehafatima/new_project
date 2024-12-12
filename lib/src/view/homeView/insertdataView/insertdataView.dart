@@ -22,7 +22,7 @@ class _InsertdataviewState extends State<Insertdataview> {
           'Today\'s Tasks',
           style: GoogleFonts.jost(
             color: AppColors.darkBlue,
-            fontSize: 22.sp,
+            fontSize: 20.sp,
             fontWeight: FontWeight.w500
           ),
         ),
@@ -76,39 +76,40 @@ class _InsertdataviewState extends State<Insertdataview> {
                                   padding: const EdgeInsets.only(left: 20),
                                   child: Row(
                                     children: [
-                                      Text('from',style:GoogleFonts.signika(fontSize: 16,color: Color(0xff888888)),),
+                                      Text('from',style:GoogleFonts.signika(fontSize: 16,color: AppColors.Grey,),),
+
                                       SizedBox(width: 5.w,),
                                       Container(
                                         height: 32.h,
                                         width: 97.w,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(8),
-                                          border: Border.all(color:Color(0xff888888),  ),
+                                          border: Border.all(color:AppColors.Grey, ),
                                         ),
                                         child: Row(mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             Column(
                                               children: [
-                                                Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_up,color: AppColors.Grey,size: 12,),
         
                                                 Text('08',style: GoogleFonts.signika(fontSize: 12.sp,
-                                                    color: Color(0xff888888)),),
+                                                    color: AppColors.Grey,),),
         
-                                                Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_down,color: AppColors.Grey,size: 12,),
                                               ],
                                             ),
                                             SizedBox(width: 5.w,),
                                             Text(':',style: GoogleFonts.signika(fontSize: 14,fontWeight: FontWeight.w400,
-                                                color: Color(0xff888888)),),
+                                                color: AppColors.Grey,),),
                                             SizedBox(width: 5.w,),
                                             Column(
                                               children: [
-                                                Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_up,color: AppColors.Grey,size: 12,),
         
                                                 Text('08',style: GoogleFonts.signika(fontSize: 12.sp,
-                                                    color: Color(0xff888888)),),
+                                                    color: AppColors.Grey,),),
         
-                                                Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_down,color: AppColors.Grey,size: 12,),
                                               ],
                                             ),
                                           ],
@@ -122,39 +123,39 @@ class _InsertdataviewState extends State<Insertdataview> {
                                   padding: const EdgeInsets.only(left: 25),
                                   child: Row(
                                     children: [
-                                      Text('till',style:GoogleFonts.signika(fontSize: 16,color: Color(0xff888888)),),
+                                      Text('till',style:GoogleFonts.signika(fontSize: 16,color: AppColors.Grey,),),
                                       SizedBox(width: 9.w,),
                                       Container(
                                         height: 32.h,
                                         width: 97.w,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(8),
-                                          border: Border.all(color:Color(0xff888888),  ),
+                                          border: Border.all(color:AppColors.Grey,),
                                         ),
                                         child: Row(mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             Column(
                                               children: [
-                                                Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_up,color: AppColors.Grey,size: 12,),
         
                                                 Text('12',style: GoogleFonts.signika(fontSize: 12.sp,
                                                     color: Color(0xff888888)),),
         
-                                                Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_down,color:AppColors.Grey,size: 12,),
                                               ],
                                             ),
                                             SizedBox(width: 5.w,),
                                             Text(':',style: GoogleFonts.signika(fontSize: 14,fontWeight: FontWeight.w400,
-                                                color: Color(0xff888888)),),
+                                                color: AppColors.Grey,),),
                                             SizedBox(width: 5.w,),
                                             Column(
                                               children: [
-                                                Icon(Icons.arrow_drop_up,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_up,color: AppColors.Grey,size: 12,),
         
                                                 Text('10',style: GoogleFonts.signika(fontSize: 12.sp,
                                                     color: Color(0xff888888)),),
         
-                                                Icon(Icons.arrow_drop_down,color: Color(0xff888888),size: 12,),
+                                                Icon(Icons.arrow_drop_down,color:AppColors.Grey,size: 12,),
                                               ],
                                             ),
                                           ],

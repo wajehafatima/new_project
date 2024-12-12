@@ -86,7 +86,7 @@ class _LoginviewState extends State<Loginview> {
             child: Text(
               'Or Continue With',
               style: GoogleFonts.jost(
-                color:  const Color(0xff888888),
+                color:  AppColors.Grey,
                 fontWeight: FontWeight.w400,
                 fontSize: 12.sp,
               ),
@@ -101,7 +101,7 @@ class _LoginviewState extends State<Loginview> {
               Text(
                 'Not a Member?',
                 style: GoogleFonts.roboto(
-                  color: const Color(0xff888888),
+                  color: AppColors.Grey,
                   fontWeight: FontWeight.w400,
                   fontSize: 13.sp,
                 ),

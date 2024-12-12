@@ -19,21 +19,21 @@ class _FbGoogleState extends State<FbGoogle> {
         Container(height: 48.h,
           width: 154.w,
           decoration: BoxDecoration(
-              border: Border.all(color: Color(0xff888888)),
+              border: Border.all(color: AppColors.Grey),
               borderRadius: BorderRadius.circular(12.r)
 
           ),
           child: Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(Appimages.google,width: 24.w,height: 24.h,),
-              SizedBox(width: 10,),
-              Text('Google',style: GoogleFonts.roboto(color: Color(0xff888888),fontWeight: FontWeight.w400,fontSize: 14.sp),),
+              SizedBox(width: 10.w,),
+              Text('Google',style: GoogleFonts.roboto(color:AppColors.Grey,fontWeight: FontWeight.w400,fontSize: 14.sp),),
 
             ],
           ),),
         SizedBox(width: 20.w,),
         Container(height: 48.h,
-          width: 154,
+          width: 154.w,
           decoration: BoxDecoration(color:AppColors.darkBlue,
 
               borderRadius: BorderRadius.circular(12.r)
