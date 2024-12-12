@@ -94,7 +94,7 @@ class _HomeviewState extends State<Homeview> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
-                children: [
+                children: [SizedBox(height: 20.h,),
                   // First Row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
