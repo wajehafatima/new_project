@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:newproject/src/controller/assets/colors/appColors.dart';
 
-import 'package:newproject/src/controller/constants/widgets/customAppBar.dart';
-import 'package:newproject/src/controller/constants/widgets/customListTile.dart';
-import 'package:newproject/src/controller/constants/widgets/richTextHome.dart';
-import 'package:newproject/src/controller/constants/widgets/taskbox.dart';
-import 'package:newproject/src/controller/constants/widgets/timeButtons.dart';
-import 'package:newproject/src/view/homeView/insertdataView/insertdataView.dart';
+import '../../controller/assets/colors/appColors.dart';
 import '../../controller/assets/images/appImages.dart';
-
+import '../../controller/constants/widgets/customListTile.dart';
+import '../../controller/constants/widgets/richTextHome.dart';
+import '../../controller/constants/widgets/taskbox.dart';
+import '../../controller/constants/widgets/timeButtons.dart';
+import 'insertdataView/insertdataView.dart';
 class Homeview extends StatefulWidget {
   const Homeview({super.key});
 
@@ -101,11 +99,11 @@ class _HomeviewState extends State<Homeview> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    Builder(builder: (context){
-                      return  IconButton(onPressed: (){
-                        Scaffold.of(context).openDrawer();
-                      }, icon: Icon(Icons.menu));
-                    }),
+                      Builder(builder: (context){
+                        return  IconButton(onPressed: (){
+                          Scaffold.of(context).openDrawer();
+                        }, icon: Icon(Icons.menu));
+                      }),
                       Text(
                         'Mtodo Logo',
                         style: GoogleFonts.jost(
@@ -137,48 +135,38 @@ class _HomeviewState extends State<Homeview> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Center(
-                        child: Container(
-                            height: 48,
-                            width: 280,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [BoxShadow(
-                                  blurRadius: 4.r,
-                                  color: AppColors.Grey
-                              ),
-                              ],
-                            ),
-                            child: Row(children: [
-                              Icon(Icons.search),
-                              SizedBox(width: 20.w,),
-                              Text('Search Here'),
-                            ],)
-                          // child: Padding(
-                          //   padding: const EdgeInsets.only(left: 10),
-                          //   child: TextFormField(
-                          //     decoration: InputDecoration(
-                          //       icon: Icon(Icons.search, color: AppColors.Grey,),
-                          //       hintText: 'Search Task',
-                          //       hintStyle: GoogleFonts.jost(
-                          //           fontWeight: FontWeight.w300, fontSize: 16),
-                          //       border: InputBorder.none,
-                          //     ),
-                          //
-                          //   ),
-                          // ),
+
+SizedBox(height: 10.h,),
+                      Container(width: 280.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                        boxShadow: [BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 4),
+                          blurRadius: 4,
+                          spreadRadius: 1,
                         ),
+                        ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12)
                       ),
-                    ],
-                  ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              hintText: 'search here',
+                              icon: Icon(Icons.search),
+                              border: InputBorder.none,
 
-                  // Add spacing below RichTextHome
-                  SizedBox(height: 15.h),
 
-                  // Search Bar
-                  SearchBar(),
-                  SizedBox(height: 50,),
+                            ),
+                          ),
+                        )
+                        )
+
+          ]
+        ),
+                  SizedBox(height: 30.h,),
                   Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Timebuttons(text: 'Today', onPressed: (){
@@ -191,10 +179,7 @@ class _HomeviewState extends State<Homeview> {
                       Timebuttons(text: 'Monthly', onPressed: (){})
                     ],
                   ),
-              SizedBox(height: 20.h,),
-
-
-                  SizedBox(height: 30.h,),
+                  SizedBox(height: 30.h),
                   Wrap(
                     children: [
                       Taskbox(backgroundColor: Color(0xff2A8899), imagePath: Appimages.school,
@@ -208,14 +193,13 @@ class _HomeviewState extends State<Homeview> {
                       ,
                       Taskbox(backgroundColor: Color(0xffffe8e8), imagePath: Appimages.add, title: '', countText: '', titleColor: Colors.white)],
 
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+                  ),
+
+
+      ]),
+    )
+          ]),
+      )
     );
   }
-
 }
