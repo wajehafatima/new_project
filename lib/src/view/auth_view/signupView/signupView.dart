@@ -79,7 +79,7 @@ class _SignupviewState extends State<Signupview> {
             CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,),
             CustomTextbutton(),
             SizedBox(height: 30.h),
-            _isLoading
+            _isLoading==true
                 ? Center(
               child: CircularProgressIndicator(),
             )
@@ -89,7 +89,25 @@ class _SignupviewState extends State<Signupview> {
               textColor: Colors.white,
               onPressed: () async{
                 await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.trim(),
-                    password: passwordController.text.trim()).then((onValue){}).onError((handleError,error){});
+                    password: passwordController.text.trim()).then((onValue){
+                      _isLoading==false;
+                      Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> Loginview()));
+                }).onError
+                  ((handleError,error){
+                    _isLoading =false;
+                    setState(() {
+
+                    });
+                   showDialog(context: context, builder:(BuildContext context){
+                     return AlertDialog(title:Text('Handle error'),
+                       content: Text('Error:${error.toString()}')
+                       ,actions: [
+                       TextButton(onPressed: (){
+                         Navigator.pop(context);
+                       }, child: Text('OK'))
+                     ], );
+                   });
+                });
               },
             ),
             SizedBox(height: 10.h),
