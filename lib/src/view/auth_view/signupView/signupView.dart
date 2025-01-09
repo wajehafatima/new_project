@@ -1,4 +1,6 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +20,8 @@ class Signupview extends StatefulWidget {
 
 class _SignupviewState extends State<Signupview> {
   bool _isLoading = false;
-
+  TextEditingController emailController= TextEditingController();
+  TextEditingController passwordController= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.white,
@@ -71,9 +74,9 @@ class _SignupviewState extends State<Signupview> {
               ),
             ),
             SizedBox(height: 20.h),
-            CustomTextField(hintText: 'Your name'),
-            CustomTextField(hintText: 'Enter Email'),
-            CustomTextField(hintText: 'password', isPassword: true),
+            //CustomTextField(hintText: 'Your name'),
+            CustomTextField(hintText: 'Enter Email',controller: emailController,),
+            CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,),
             CustomTextbutton(),
             SizedBox(height: 30.h),
             _isLoading
@@ -84,16 +87,11 @@ class _SignupviewState extends State<Signupview> {
               text: 'Sign Up',
               backgroundColor: AppColors.darkBlue,
               textColor: Colors.white,
-              onPressed: () {
-                setState(() {
-                  _isLoading = true;
-                });
-                // TODO: Sign up functionality
-                Future.delayed(Duration(seconds: 5), () {
-                  setState(() {
-                    _isLoading = false;
-                  });
-                });
+              onPressed: () async{
+              await FirebaseAuth.instance.createUserWithEmailAndPassword
+                (email: emailController.text.trim(), password: passwordController.text.trim()).then(onValue){
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> LoginView()));
+              };
               },
             ),
             SizedBox(height: 10.h),

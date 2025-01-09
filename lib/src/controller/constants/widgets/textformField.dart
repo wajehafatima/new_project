@@ -6,11 +6,13 @@ import 'package:newproject/src/controller/assets/colors/appColors.dart';
 class CustomTextField extends StatefulWidget {
   final String hintText;
   final bool isPassword;
+  TextEditingController ?controller;
 
-  const CustomTextField({
+   CustomTextField({
     Key? key,
     required this.hintText,
     this.isPassword = false,
+    this.controller
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 8, left: 16, right: 16),
       child: TextFormField(
+        controller: widget.controller?? null,
         obscureText: _obscureText,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
