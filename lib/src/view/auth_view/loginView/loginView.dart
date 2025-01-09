@@ -56,8 +56,8 @@ class _LoginviewState extends State<Loginview> {
             ),
           ),
           SizedBox(height: 20.h),
-         const  CustomTextField(hintText: 'Enter your Email'),
-         const  CustomTextField(hintText: 'Enter Password', isPassword: true),
+           CustomTextField(hintText: 'Enter your Email'),
+           CustomTextField(hintText: 'Enter Password', isPassword: true),
           SizedBox(height: 30.h),
           _isLoading
               ?const  Center(
