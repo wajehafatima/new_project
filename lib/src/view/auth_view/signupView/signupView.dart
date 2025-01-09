@@ -91,7 +91,11 @@ class _SignupviewState extends State<Signupview> {
               await FirebaseAuth.instance.createUserWithEmailAndPassword
                 (email: emailController.text.trim(), password: passwordController.text.trim()).then(onValue){
                 Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> LoginView()));
-              };
+              }).onError(
+                (handleError. error),
+                {
+
+                });
               },
             ),
             SizedBox(height: 10.h),
