@@ -106,14 +106,14 @@ class _SignupviewState extends State<Signupview> {
                          Navigator.pop(context);
                        }, child: Text('OK'))
                      ], );
-                     
+
                    });
                 });
               },
             ),
             SizedBox(height: 10.h),
             Alreadyaccount(),
-            onetwo...
+
           ],
         ),
       ),
