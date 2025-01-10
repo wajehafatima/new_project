@@ -23,11 +23,11 @@ import 'package:newproject/src/view/auth_view/signupView/signupView.dart';
             child: Column(children: [
               Image.asset(Appimages.Start),
 
-              SizedBox(height: 40.h,),
+              //SizedBox(height: 30.h,),
               Text('Start Manage Your Task With',style: GoogleFonts.jost(fontWeight: FontWeight.w500, fontSize:20.sp),),
               Text('mtodo',style: GoogleFonts.jost(fontWeight: FontWeight.w500, fontSize:24.sp,color: Color(0xff9BA3EB)),),
 
-              SizedBox(height: 30.h,),
+              SizedBox(height: 20.h,),
               CustomButton(text: 'Sign Up', backgroundColor:AppColors.lightBlue, textColor: Colors.white, onPressed:(){
               Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> Signupview()));
               }),

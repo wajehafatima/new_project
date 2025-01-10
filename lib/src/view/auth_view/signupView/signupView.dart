@@ -1,6 +1,9 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
+<<<<<<< Updated upstream
 import 'package:firebase_core/firebase_core.dart';
+=======
+>>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,8 +23,14 @@ class Signupview extends StatefulWidget {
 
 class _SignupviewState extends State<Signupview> {
   bool _isLoading = false;
+<<<<<<< Updated upstream
   TextEditingController emailController= TextEditingController();
   TextEditingController passwordController= TextEditingController();
+=======
+  TextEditingController emailContriller=TextEditingController();
+  TextEditingController passwordContriller=TextEditingController();
+
+>>>>>>> Stashed changes
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.white,
@@ -74,6 +83,7 @@ class _SignupviewState extends State<Signupview> {
               ),
             ),
             SizedBox(height: 20.h),
+<<<<<<< Updated upstream
             //CustomTextField(hintText: 'Your name'),
             CustomTextField(hintText: 'Enter Email',controller: emailController,),
             CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,),
@@ -84,10 +94,21 @@ class _SignupviewState extends State<Signupview> {
               child: CircularProgressIndicator(),
             )
                 : CustomButton(
+=======
+           // CustomTextField(hintText: 'Your name'),
+            CustomTextField(hintText: 'Enter Email',controller: emailContriller,),
+            CustomTextField(hintText: 'password', isPassword: true,controller: passwordContriller,),
+            CustomTextbutton(),
+            SizedBox(height: 30.h),
+            _isLoading==true? CircularProgressIndicator()
+                :
+            CustomButton(
+>>>>>>> Stashed changes
               text: 'Sign Up',
               backgroundColor: AppColors.darkBlue,
               textColor: Colors.white,
               onPressed: () async{
+<<<<<<< Updated upstream
                 await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.trim(),
                     password: passwordController.text.trim()).then((onValue){
                       _isLoading==false;
@@ -108,6 +129,40 @@ class _SignupviewState extends State<Signupview> {
                      ], );
                    });
                 });
+=======
+                _isLoading=true;
+                setState(() {
+
+                });
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: emailContriller.text.trim(),
+                    password: passwordContriller.text.trim()
+                ).then((onValue){
+                  _isLoading=false;
+                  setState(() {
+
+                  });
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginview()));
+                }).
+                onError(
+                        (handleError,error)
+                    {
+                      _isLoading=false;
+                      setState(() {
+
+                      });
+                      print('Error:${handleError.toString()}');
+                    });
+                // setState(() {
+                //   _isLoading = true;
+                // });
+                // // TODO: Sign up functionality
+                // Future.delayed(Duration(seconds: 5), () {
+                //   setState(() {
+                //     _isLoading = false;
+                //   });
+                // });
+>>>>>>> Stashed changes
               },
             ),
             SizedBox(height: 10.h),
