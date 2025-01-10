@@ -113,7 +113,7 @@ class _SignupviewState extends State<Signupview> {
             ),
             SizedBox(height: 10.h),
             Alreadyaccount(),
-.....
+
           ],
         ),
       ),
