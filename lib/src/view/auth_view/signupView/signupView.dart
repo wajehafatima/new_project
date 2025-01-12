@@ -1,7 +1,10 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import 'package:firebase_core/firebase_core.dart';
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import 'package:flutter/material.dart';
@@ -24,9 +27,12 @@ class Signupview extends StatefulWidget {
 class _SignupviewState extends State<Signupview> {
   bool _isLoading = false;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   TextEditingController emailController= TextEditingController();
   TextEditingController passwordController= TextEditingController();
 =======
+=======
+>>>>>>> Stashed changes
   TextEditingController emailContriller=TextEditingController();
   TextEditingController passwordContriller=TextEditingController();
 
@@ -84,6 +90,7 @@ class _SignupviewState extends State<Signupview> {
             ),
             SizedBox(height: 20.h),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             //CustomTextField(hintText: 'Your name'),
             CustomTextField(hintText: 'Enter Email',controller: emailController,),
             CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,),
@@ -104,10 +111,21 @@ class _SignupviewState extends State<Signupview> {
                 :
             CustomButton(
 >>>>>>> Stashed changes
+=======
+           // CustomTextField(hintText: 'Your name'),
+            CustomTextField(hintText: 'Enter Email',controller: emailContriller,),
+            CustomTextField(hintText: 'password', isPassword: true,controller: passwordContriller,),
+            CustomTextbutton(),
+            SizedBox(height: 30.h),
+            _isLoading==true? CircularProgressIndicator()
+                :
+            CustomButton(
+>>>>>>> Stashed changes
               text: 'Sign Up',
               backgroundColor: AppColors.darkBlue,
               textColor: Colors.white,
               onPressed: () async{
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.trim(),
                     password: passwordController.text.trim()).then((onValue){
@@ -131,6 +149,8 @@ class _SignupviewState extends State<Signupview> {
                    });
                 });
 =======
+=======
+>>>>>>> Stashed changes
                 _isLoading=true;
                 setState(() {
 
@@ -163,6 +183,9 @@ class _SignupviewState extends State<Signupview> {
                 //     _isLoading = false;
                 //   });
                 // });
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
               },
             ),
