@@ -22,6 +22,13 @@ class _SignupviewState extends State<Signupview> {
   bool _isLoading = false;
   TextEditingController emailController= TextEditingController();
   TextEditingController passwordController= TextEditingController();
+  FirebaseAuth auth= FirebaseAuth.instance;
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.white,
@@ -75,8 +82,23 @@ class _SignupviewState extends State<Signupview> {
             ),
             SizedBox(height: 20.h),
             //CustomTextField(hintText: 'Your name'),
-            CustomTextField(hintText: 'Enter Email',controller: emailController,),
-            CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,),
+            CustomTextField(hintText: 'Enter Email',controller: emailController,validator: (value){
+              if (value!.isEmpty){
+                return 'Enter Email';
+
+              }
+              return null;
+
+            },),
+            CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,
+              validator: (value){
+                if (value!.isEmpty){
+                  return 'Enter Email';
+
+                }
+                return null;
+
+              },),
             CustomTextbutton(),
             SizedBox(height: 30.h),
             _isLoading==true
