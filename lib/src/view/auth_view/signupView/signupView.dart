@@ -8,9 +8,7 @@ import 'package:newproject/src/controller/constants/widgets/alreadyAccount.dart'
 import 'package:newproject/src/controller/constants/widgets/buttons/inkwellbuttons.dart';
 import 'package:newproject/src/controller/constants/widgets/buttons/textButton.dart';
 import 'package:newproject/src/controller/constants/widgets/textformField.dart';
-import 'package:newproject/src/controller/constants/widgets/utils/utils.dart';
 import 'package:newproject/src/view/auth_view/loginView/loginView.dart';
-import 'package:newproject/src/view/homeView/homeView.dart';
 import '../../../controller/assets/colors/appColors.dart';
 
 class Signupview extends StatefulWidget {
@@ -22,16 +20,8 @@ class Signupview extends StatefulWidget {
 
 class _SignupviewState extends State<Signupview> {
   bool _isLoading = false;
-  final _formKey = GlobalKey<FormState>();
   TextEditingController emailController= TextEditingController();
   TextEditingController passwordController= TextEditingController();
-  FirebaseAuth auth= FirebaseAuth.instance;
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    emailController.dispose();
-    passwordController.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.white,
@@ -85,29 +75,8 @@ class _SignupviewState extends State<Signupview> {
             ),
             SizedBox(height: 20.h),
             //CustomTextField(hintText: 'Your name'),
-            Form(key: _formKey,
-              child: Column(
-                children: [
-                  CustomTextField(hintText: 'Enter Email',controller: emailController,validator: (value){
-                    if (value!.isEmpty){
-                      return 'Enter Email';
-
-                    }
-                    return null;
-
-                  },),
-
-
-              CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,
-                validator: (value){
-                  if (value!.isEmpty){
-                    return 'Enter Email';
-
-                  }
-                  return null;
-
-                },),]),
-            ),
+            CustomTextField(hintText: 'Enter Email',controller: emailController,),
+            CustomTextField(hintText: 'password', isPassword: true,controller: passwordController,),
             CustomTextbutton(),
             SizedBox(height: 30.h),
             _isLoading==true
@@ -118,24 +87,30 @@ class _SignupviewState extends State<Signupview> {
               text: 'Sign Up',
               backgroundColor: AppColors.darkBlue,
               textColor: Colors.white,
-            onPressed: (){if(_formKey.currentState!.validate()){
-              auth.createUserWithEmailAndPassword(
-                  email: emailController.text.toString(), password:passwordController.text.toString()).then((value){
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=> Homeview()) );
-                    setState(() {
+              onPressed: () async{
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.trim(),
+                    password: passwordController.text.trim()).then((onValue){
                       _isLoading==false;
+                      Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> Loginview()));
+                }).onError
+                  ((handleError,error){
+                    _isLoading =false;
+                    setState(() {
+
                     });
+                   showDialog(context: context, builder:(BuildContext context){
+                     return AlertDialog(title:Text('Handle error'),
+                       content: Text('Error:${error.toString()}')
+                       ,actions: [
+                       TextButton(onPressed: (){
+                         Navigator.pop(context);
+                       }, child: Text('OK'))
+                     ], );
 
-              }).onError((error,stackTrace){
-                Utils().toastMessage(error.toString());
-              });
-            }
-
-            }),
-
-
-
-
+                   });
+                });
+              },
+            ),
             SizedBox(height: 10.h),
             Alreadyaccount(),
 

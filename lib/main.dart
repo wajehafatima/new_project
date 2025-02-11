@@ -39,8 +39,23 @@ class MyApp extends StatelessWidget {
 
           home://Insertdataview()
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
        //   Homeview()
         //Splashview()
+=======
+        //  Homeview()
+      //  Splashview()
+>>>>>>> Stashed changes
+=======
+        //  Homeview()
+      //  Splashview()
+>>>>>>> Stashed changes
+=======
+        //  Homeview()
+      //  Splashview()
+>>>>>>> Stashed changes
         //  Loginview()
          Signupview()
       ),
