@@ -68,7 +68,7 @@ class _HomeviewState extends State<Homeview> {
               CustomListTile(icon: Icons.star, title: 'Important Tasks'),
               CustomListTile(icon:Icons.done_all, title: 'Done tasks'),
               CustomListTile(icon: Icons.logout, title: 'Logout',onTap: (){
-                
+
               },)
             ],
           ),
