@@ -66,7 +66,10 @@ class _HomeviewState extends State<Homeview> {
               CustomListTile(icon: Icons.edit, title: 'Edit profile'),
               CustomListTile(icon: Icons.edit_calendar_outlined, title: 'Daily tasks'),
               CustomListTile(icon: Icons.star, title: 'Important Tasks'),
-              CustomListTile(icon:Icons.done_all, title: 'Done tasks')
+              CustomListTile(icon:Icons.done_all, title: 'Done tasks'),
+              CustomListTile(icon: Icons.logout, title: 'Logout',onTap: (){
+                
+              },)
             ],
           ),
         ),

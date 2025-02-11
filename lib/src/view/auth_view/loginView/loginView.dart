@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,6 +7,7 @@ import 'package:newproject/src/controller/assets/images/appImages.dart';
 import 'package:newproject/src/controller/constants/widgets/buttons/inkwellbuttons.dart';
 import 'package:newproject/src/controller/constants/widgets/g_fb_login.dart';
 import 'package:newproject/src/controller/constants/widgets/textformField.dart';
+import 'package:newproject/src/controller/constants/widgets/utils/utils.dart';
 import 'package:newproject/src/view/homeView/homeView.dart';
 import '../../../controller/assets/colors/appColors.dart';
 import '../signupView/signupView.dart';
@@ -19,9 +21,27 @@ class Loginview extends StatefulWidget {
 
 class _LoginviewState extends State<Loginview> {
   bool _isLoading = false;
+ final  auth=FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController= TextEditingController();
   TextEditingController passwordController= TextEditingController();
+  void login(){
+    setState(() {
+      _isLoading== true;
+    });
+    auth.signInWithEmailAndPassword(email: emailController.text.toString(), password: passwordController.text.toString()).then((value){
+      Navigator.push(context,MaterialPageRoute(builder:(context)=> Homeview()) );
+      setState(() {
+        _isLoading== false;
+      });
+
+    }).onError((error,stackTrace){
+      Utils().toastMessage(error.toString());
+      setState(() {
+        _isLoading == false;
+      });
+    });
+  }
   @override
   void dispose() {
     // TODO: implement dispose
@@ -98,19 +118,14 @@ class _LoginviewState extends State<Loginview> {
               backgroundColor: AppColors.darkBlue,
 
               textColor: Colors.white,
-              onPressed: () {if(_formKey.currentState!.validate())
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=> Homeview()));
-                setState(() {
-                  _isLoading = true;
-                });
-                // TODO: Login functionality
-                Future.delayed(Duration(seconds: 5), () {
-                  setState(() {
-                    _isLoading = false;
-                  });
-                });
+              onPressed: () {if(_formKey.currentState!.validate()){
+                login();
+              }
+    }
 
-              },
+
+
+
             ),
             SizedBox(height: 20.h),
             Center(
