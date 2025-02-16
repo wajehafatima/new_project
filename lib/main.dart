@@ -39,10 +39,9 @@ class MyApp extends StatelessWidget {
 
           home://Insertdataview()
 
-Splashview(),
 
         //  Loginview()
-        // Signupview()
+         Signupview()
       ),
     );
 
