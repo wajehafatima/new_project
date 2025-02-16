@@ -18,22 +18,27 @@ class Splashview extends StatefulWidget {
 }
 
 class _SplashviewState extends State<Splashview> {
-  final auth = FirebaseAuth.instance;
-  User? user;
+
   @override
   void initState() {
     super.initState();
-    user = auth.currentUser;
+
 
     Future.delayed(Duration(seconds: 3), () {
-      if (user != null) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Homeview()));
-      } else {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) =>Loginview()));
-      }
+      islog();
     });
+  }
+  islog(){
+    final auth = FirebaseAuth.instance;
+    User? user;
+    user = auth.currentUser;
+    if (user != null) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Homeview()));
+    } else {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Loginview()));
+    }
   }
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.white,
@@ -59,8 +64,7 @@ class _SplashviewState extends State<Splashview> {
                 backgroundColor: AppColors.lightBlue,
                 textColor: Colors.white,
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                      builder: (context) => Onboardingview()));
+                  islog();
                 })
 
 

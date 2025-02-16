@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newproject/src/controller/constants/widgets/utils/utils.dart';
+import 'package:newproject/src/view/auth_view/loginView/loginView.dart';
 
 import '../../controller/assets/colors/appColors.dart';
 import '../../controller/assets/images/appImages.dart';
@@ -17,6 +20,7 @@ class Homeview extends StatefulWidget {
 }
 
 class _HomeviewState extends State<Homeview> {
+  final auth= FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +72,12 @@ class _HomeviewState extends State<Homeview> {
               CustomListTile(icon: Icons.star, title: 'Important Tasks'),
               CustomListTile(icon:Icons.done_all, title: 'Done tasks'),
               CustomListTile(icon: Icons.logout, title: 'Logout',onTap: (){
-
+               auth.signOut().then((value){
+                 Navigator.pushReplacement(context, MaterialPageRoute(
+                     builder: (context) => Loginview())).onError((error,stackTrace){
+                       Utils().toastMessage(error.toString());
+                 });
+               });
               },)
             ],
           ),
