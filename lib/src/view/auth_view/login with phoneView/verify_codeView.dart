@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/assets/colors/appColors.dart';
 class VerifyCodeview extends StatefulWidget {
-  const VerifyCodeview({super.key});
+  final String verificationId;
+  const VerifyCodeview({super.key,required this.verificationId});
 
   @override
   State<VerifyCodeview> createState() => _VerifyCodeviewState();
