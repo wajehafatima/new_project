@@ -31,7 +31,7 @@ class _SignupviewState extends State<Signupview> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 8),
+              padding: const EdgeInsets.only(left: 8,top: 30),
               child: Text(
                 'mtodo Logo',
                 style: GoogleFonts.jost(
