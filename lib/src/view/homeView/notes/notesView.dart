@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newproject/src/view/auth_view/loginView/logintwo.dart';
+import 'package:newproject/src/view/homeView/notes/AddNotes.dart';
 
 import '../../../controller/constants/widgets/utils/utils.dart';
 
@@ -127,7 +128,12 @@ class _NotesviewState extends State<Notesview> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.purple.shade300,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Addnotes()),
+          );
+        },
         child: Icon(Icons.add, color: Colors.white),
       ),
     );
