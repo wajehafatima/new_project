@@ -1,7 +1,9 @@
 import 'dart:js_interop';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newproject/src/controller/constants/widgets/utils/utils.dart';
 
 class Addnotes extends StatefulWidget {
   const Addnotes({super.key});
@@ -12,7 +14,7 @@ class Addnotes extends StatefulWidget {
 
 class _AddnotesState extends State<Addnotes> {
   final TextEditingController _notesController = TextEditingController();
-  final _firestore = FirebaseFirestore.instance.
+  final _fireStore = FirebaseFirestore.instance.collection('users');
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,15 @@ class _AddnotesState extends State<Addnotes> {
         actions: [
           TextButton(
             onPressed: () {
-              // Save note logic
+              String id= DateTime.now().microsecondsSinceEpoch.toString();
+              _fireStore.doc().set({
+                'title': _notesController.toString(),
+                'id': id
+              }).then((value){
+                Utils().toastMessage('Notes Added');
+              }).onError((error, stackTrace){
+                Utils().toastMessage(error.toString());
+              });
             },
             child: Text(
               "SAVE",
