@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newproject/firebase_options.dart';
 import 'package:newproject/src/view/auth_view/loginView/loginView.dart';
-import 'package:newproject/src/view/auth_view/loginView/logintwo.dart';
+import 'package:newproject/src/view/homeView/notes/logintwo.dart';
 import 'package:newproject/src/view/auth_view/signupView/signupView.dart';
 import 'package:newproject/src/view/homeView/homeView.dart';
 import 'package:newproject/src/view/homeView/insertdataView/insertdataView.dart';

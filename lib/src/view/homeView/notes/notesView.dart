@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:newproject/src/view/auth_view/loginView/logintwo.dart';
+import 'package:newproject/src/view/homeView/notes/logintwo.dart';
 import 'package:newproject/src/view/homeView/notes/AddNotes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../controller/constants/widgets/utils/utils.dart';
@@ -92,42 +92,24 @@ class _NotesviewState extends State<Notesview> {
                 return Center(child: Text('No notes available'));
               }
 
-              return GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 0.8,
-                ),
+              return ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
-
-                  return Container(
-                    padding: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
+                  return Card(
+                    elevation: 4,
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                    shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 4,
-                          spreadRadius: 2,
-                        ),
-                      ],
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(snapshot.data!.docs[index]['title'].toString(),
-
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    child: ListTile(
+                      title: Text(
+                        snapshot.data!.docs[index]['title'].toString(),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(height: 8),
-
-                      ],
+                      ),
+                      tileColor: Colors.white,
                     ),
                   );
                 },
