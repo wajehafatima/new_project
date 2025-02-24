@@ -16,6 +16,7 @@ class _NotesviewState extends State<Notesview> {
   final auth = FirebaseAuth.instance;
   final editController = TextEditingController();
   final _fireStore = FirebaseFirestore.instance.collection('users').snapshots();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +34,14 @@ class _NotesviewState extends State<Notesview> {
           IconButton(
             icon: Icon(Icons.logout, color: Colors.black54),
             onPressed: () {
-                  () {
-                    auth.signOut().then((value) {
-                      Navigator.pushReplacement(context, MaterialPageRoute(
-                          builder: (context) => Logintwo())).onError((error,
-                          stackTrace) {
-                        Utils().toastMessage(error.toString());
-                      });
-                    });
-                  };
+              auth.signOut().then((value) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Logintwo()),
+                ).onError((error, stackTrace) {
+                  Utils().toastMessage(error.toString());
+                });
+              });
             },
           ),
         ],
@@ -65,81 +65,77 @@ class _NotesviewState extends State<Notesview> {
           ],
         ),
       ),
-      body: StreamBuilder<QuerySnapshot>(
-        stream: _fireStore,
-        builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.connectionState==ConnectionState.waiting)
-            return CircularProgressIndicator();
-          if (snapshot.hasData)
-            return Text('Some Error occured');
-          return
-            Container(
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFFFE4E1), // Light pastel pink
-                    Color(0xFFB5EAD7), // Soft pastel green
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
+      body: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFFFFE4E1), // Light pastel pink
+              Color(0xFFB5EAD7), // Soft pastel green
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: StreamBuilder<QuerySnapshot>(
+            stream: _fireStore,
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasError) {
+                return Center(child: Text('Some error occurred'));
+              }
+              if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                return Center(child: Text('No notes available'));
+              }
 
-
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 0.8
-                  ),
-                  itemCount: snapshot.data!.docs.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 4,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Note Title ${index + 1}',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8),
-                          Text(
-                            'This is a sample note content for note ${index +
-                                1}.',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black54,
-                            ),
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+              return GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 0.8,
                 ),
-              ),
-            );
-        } ),
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (context, index) {
+
+                  return Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 4,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(snapshot.data!.docs[index]['title'].toString(),
+
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 8),
+
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.purple.shade300,
         onPressed: () {

@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newproject/src/controller/constants/widgets/utils/utils.dart';
+import 'package:newproject/src/view/homeView/notes/notesView.dart';
 
 class Addnotes extends StatefulWidget {
   const Addnotes({super.key});
@@ -39,6 +40,10 @@ class _AddnotesState extends State<Addnotes> {
                 'id': id
               }).then((value){
                 Utils().toastMessage('Notes Added');
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Notesview()),
+                );
               }).onError((error, stackTrace){
                 Utils().toastMessage(error.toString());
               });
