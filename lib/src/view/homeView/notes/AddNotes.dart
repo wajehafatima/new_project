@@ -93,7 +93,7 @@ class _AddnotesState extends State<Addnotes> {
             ),
             child: TextFormField(
               controller: _notesController,
-              
+
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
                 hintText: "Write your notes here...",
