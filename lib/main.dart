@@ -8,6 +8,7 @@ import 'package:newproject/src/view/auth_view/signupView/signupView.dart';
 import 'package:newproject/src/view/homeView/homeView.dart';
 import 'package:newproject/src/view/homeView/insertdataView/insertdataView.dart';
 import 'package:newproject/src/view/homeView/notes/AddNotes.dart';
+import 'package:newproject/src/view/homeView/notes/notesView.dart';
 import 'package:newproject/src/view/startingView/splashView/splashView.dart';
 // connect project with firebase......
 
@@ -41,10 +42,10 @@ class MyApp extends StatelessWidget {
 
           home://Insertdataview()
 
-
+Notesview()
         //  Loginview()
          //Signupview()
-        Addnotes()
+       // Addnotes()
       ),
     );
 

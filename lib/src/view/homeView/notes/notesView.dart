@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newproject/src/view/auth_view/loginView/logintwo.dart';
 import 'package:newproject/src/view/homeView/notes/AddNotes.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../controller/constants/widgets/utils/utils.dart';
 
 class Notesview extends StatefulWidget {
@@ -14,6 +14,8 @@ class Notesview extends StatefulWidget {
 
 class _NotesviewState extends State<Notesview> {
   final auth = FirebaseAuth.instance;
+  final editController = TextEditingController();
+  final _fireStore = FirebaseFirestore.instance.collection('users').snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,69 +65,81 @@ class _NotesviewState extends State<Notesview> {
           ],
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFFFFE4E1), // Light pastel pink
-              Color(0xFFB5EAD7), // Soft pastel green
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 0.8,
-            ),
-            itemCount: 6,
-            itemBuilder: (context, index) {
-              return Container(
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 4,
-                      spreadRadius: 2,
-                    ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _fireStore,
+        builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.connectionState==ConnectionState.waiting)
+            return CircularProgressIndicator();
+          if (snapshot.hasData)
+            return Text('Some Error occured');
+          return
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFFFE4E1), // Light pastel pink
+                    Color(0xFFB5EAD7), // Soft pastel green
                   ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Note Title ${index + 1}',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+
+
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 0.8
+                  ),
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 4,
+                            spreadRadius: 2,
+                          ),
+                        ],
                       ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'This is a sample note content for note ${index + 1}.',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black54,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Note Title ${index + 1}',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'This is a sample note content for note ${index +
+                                1}.',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black54,
+                            ),
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
                       ),
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
+                    );
+                  },
                 ),
-              );
-            },
-          ),
-        ),
-      ),
+              ),
+            );
+        } ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.purple.shade300,
         onPressed: () {

@@ -22,6 +22,8 @@ class Homeview extends StatefulWidget {
 
 class _HomeviewState extends State<Homeview> {
   final auth = FirebaseAuth.instance;
+  final editController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
