@@ -70,8 +70,8 @@ class _NotesviewState extends State<Notesview> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFFFFE4E1), // Light pastel pink
-              Color(0xFFB5EAD7), // Soft pastel green
+              Color(0xFFFFE4E1),
+              Color(0xFFB5EAD7),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

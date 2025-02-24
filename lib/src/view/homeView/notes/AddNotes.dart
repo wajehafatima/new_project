@@ -61,15 +61,15 @@ class _AddnotesState extends State<Addnotes> {
       ),
       body: Stack(
         children: [
-          /// Background Gradient
+
           Container(
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xFFFFE4E1), // Light pastel pink
-                  Color(0xFFB5EAD7), // Soft pastel green
+                  Color(0xFFFFE4E1),
+                  Color(0xFFB5EAD7),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -78,34 +78,29 @@ class _AddnotesState extends State<Addnotes> {
           ),
 
 
-          Positioned(
-            top: 20, // Adjusts position from the top
-            left: 16,
-            right: 16,
-            child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.9), // Slight transparency
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 6,
-                    offset: Offset(2, 2),
-                  ),
-                ],
-              ),
-              child: TextFormField(
-                controller: _notesController,
-                maxLines: 3, // Restricting height
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                  hintText: "Write your notes here...",
-                  hintStyle: GoogleFonts.poppins(color: Colors.black54),
-                  border: InputBorder.none,
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.9),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 6,
+                  offset: Offset(2, 2),
                 ),
-                style: GoogleFonts.poppins(fontSize: 16, color: Colors.black87),
+              ],
+            ),
+            child: TextFormField(
+              controller: _notesController,
+              
+              keyboardType: TextInputType.multiline,
+              decoration: InputDecoration(
+                hintText: "Write your notes here...",
+                hintStyle: GoogleFonts.poppins(color: Colors.black54),
+                border: InputBorder.none,
               ),
+              style: GoogleFonts.poppins(fontSize: 16, color: Colors.black87),
             ),
           ),
         ],
